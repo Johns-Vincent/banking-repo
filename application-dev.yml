@@ -1,6 +1,6 @@
 spring:
   application:
-    name: DEV-PROFILES
+    name: DEV-PROFILE
   datasource:
     username: root
     password: Johns@2000
