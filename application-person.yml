@@ -1,7 +1,10 @@
+server:
+  port: 8082
 spring:
   application:
-    name: PERSON-PROFILE
+    name: PERSON-SERVICE
   datasource:
+    url: jdbc:mysql://localhost:3306/persondb
     username: root
     password: Johns@2000
     driver-class-name: com.mysql.cj.jdbc.Driver
