@@ -18,3 +18,31 @@ spring:
     client:
       fetch-registry: true
       register-with-eureka: true
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+    endpoints:
+      web:
+        exposure:
+          include: health
+  #this endpoint is to get the health - use it in the uri
+  endpoint:
+    health:
+      show-details: always
+      
+#configure resilience4J
+resilience4j:
+  circuitbreaker:
+    instances:
+      hotRatCB:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        #this is 50%
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 6s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: COUNT_BASED
