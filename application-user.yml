@@ -3,10 +3,6 @@ server:
 spring:
   application:
     name: USER-SERVICE
-  security:
-    user:
-      name: "johns"
-      password: "hello123"
   datasource:
     url: jdbc:mysql://localhost:3306/userdb
     username: root
